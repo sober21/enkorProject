@@ -1,4 +1,4 @@
 from sqlalchemy import create_engine
-from config import setting
+from config import settings
 
-engine = create_engine(setting.db_path, echo=True)
+engine = create_engine(settings.db_path, echo=True)
