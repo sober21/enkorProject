@@ -9,3 +9,5 @@ class User(Base):
 
     login: Mapped[str] = mapped_column(String(50), unique=True)
     hash_password: Mapped[str] = mapped_column(String(300))
+
+    profile: Mapped["Profile"] = relationship(back_populates='user')
