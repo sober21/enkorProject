@@ -13,7 +13,6 @@ class Employee(Base):
     profile_id: Mapped[int] = mapped_column(ForeignKey("profiles.id"))
     profile: Mapped["Profile"] = relationship(back_populates="employee")
     salary: Mapped[list["Salary"]] = relationship(back_populates="employee")
-    cost: Mapped[list["CostOfWork"]] = relationship(back_populates="employee")
     order: Mapped[list["Order"]] = relationship(back_populates="employee")
 
 
