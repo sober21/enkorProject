@@ -15,5 +15,13 @@ class Employee(Base):
     salary: Mapped[list["Salary"]] = relationship(back_populates="employee")
     order: Mapped[list["Order"]] = relationship(back_populates="employee")
 
+    def __str__(self):
+        return (f'Employee(id={self.id}, '
+                f'job={self.job}, '
+                f'workplace={self.workplace})')
 
+    def __repr__(self):
+        return (f'Employee(id={self.id}, '
+                f'job={self.job}, '
+                f'workplace={self.workplace})')
 
