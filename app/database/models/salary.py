@@ -13,3 +13,11 @@ class Salary(Base):
 
     employee_id: Mapped[int] = mapped_column(ForeignKey("employees.id"))
     employee: Mapped["Employee"] = relationship(back_populates="salary")
+
+    def __str__(self):
+        return (f'Salary(add_date={self.add_date}, '
+                f'amount={self.amount})')
+
+    def __repr__(self):
+        return (f'Salary(add_date={self.add_date}, '
+                f'amount={self.amount})')

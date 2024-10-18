@@ -14,3 +14,15 @@ class Order(Base):
 
     employee_id: Mapped[int] = mapped_column(ForeignKey("employees.id"))
     employee: Mapped["Employee"] = relationship(back_populates="order")
+
+    def __str__(self):
+        return (f'Order(order={self.order_name}, '
+                f'count_position={self.count_positions}, '
+                f'price={self.price}, '
+                f'add_date={self.add_date})')
+
+    def __pepr__(self):
+        return (f'Order(order={self.order_name}, '
+                f'count_position={self.count_positions}, '
+                f'price={self.price}, '
+                f'add_date={self.add_date})')
