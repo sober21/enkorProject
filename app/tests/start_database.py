@@ -5,7 +5,7 @@ from sqlalchemy.orm import Session
 from database import engine
 from database.models import User, Salary, Employee, Profile, Order
 from database.models.base import Base
-from database.crud import get_id_by_user, get_id_by_profile, get_id_by_employee, create_user
+from database.crud import get_id_by_user, get_id_by_profile, create_user
 from tests.generation_users import users
 
 def start_database() -> None:
