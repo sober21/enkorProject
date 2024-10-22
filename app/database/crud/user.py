@@ -13,9 +13,10 @@ def create_user(session: Session, login: str, hash_password: str) -> User:
     return user
 
 
-def get_user(session: Session, user_id: str) -> User:
-    stmt = select(User).where(User.id == user_id)
-    user = session.scalars(stmt).first()
+def get_user_by_id(session: Session, user_id: int) -> User:
+    with session(engine) as sess:
+        stmt = select(User).where(User.id == user_id)
+        user = sess.scalars(stmt).first()
     return user
 
 
