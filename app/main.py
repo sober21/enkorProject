@@ -1,13 +1,14 @@
 import uvicorn
 from typing import Annotated
-from fastapi import FastAPI, Query
+from fastapi import FastAPI, Query, responses
 from pydantic import BaseModel, Field
 from fastapi.templating import Jinja2Templates
 from fastapi.requests import Request
 from fastapi.staticfiles import StaticFiles
+from sqlalchemy.orm import Session
 
 from api import router
-from database.crud.user import get_user
+from database.crud.user import get_user_by_id
 
 
 templates = Jinja2Templates(directory='templates')
@@ -23,14 +24,14 @@ app.include_router(router, prefix="/api")
 
 
 @app.get('/')
-async def index():
-    return {'cocococo': 'kukukukukuk'}
+async def index(request: Request):
+    return templates.TemplateResponse(request=request, name='index.html')
 #
 #
-# @app.get('/users/{user_id}')
-# async def get_user(user_id: int):
-#     user = get_user(user_id)
-#     return user
+@app.get('/users/{user_id}')
+def get_user(request: Request, user_id: int):
+    user = get_user_by_id(Session, user_id)
+    return templates.TemplateResponse(request, 'index.html', context={'user':user})
 #
 #
 # class Item(BaseModel):
