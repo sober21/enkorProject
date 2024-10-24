@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Регистрация{% endblock %}</title>
+</head>
+<body>
+ {% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+        <h1>Регистрация</h1>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="login">Логин</span>
+        <input type="text" class="form-control" placeholder="Введите логин" aria-label="Логин" aria-describedby="login">
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="password">Пароль</span>
+        <input type="text" class="form-control" placeholder="Введите пароль" aria-label="Пароль" aria-describedby="password">
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="reply_password">Пароль</span>
+        <input type="text" class="form-control" placeholder="Повторите пароль" aria-label="Пароль" aria-describedby="reply_password">
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="name">Имя</span>
+        <input type="text" class="form-control" placeholder="Введите ваше имя" aria-label="Имя" aria-describedby="name">
+      </div>
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="job">Должность</label>
+        <select class="form-select" id="job">
+          <option selected>Выберите...</option>
+          <option value="1">Упаковщик</option>
+          <option value="2">Пом. кладовщика</option>
+          <option value="3">Кладовщик</option>
+          <option value="3">Старший кладовщик</option>
+          <option value="3">Начальник склада</option>
+        </select>
+      </div>
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="workplace">Отдел</label>
+        <select class="form-select" id="workplace">
+          <option selected>Выберите...</option>
+          <option value="1">Упаковка</option>
+          <option value="2">Магазины</option>
+          <option value="3">1 отдел</option>
+          <option value="3">3 отдел</option>
+          <option value="3">Офис</option>
+        </select>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+ {% endblock content %}
+</body>
+</html>
