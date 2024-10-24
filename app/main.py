@@ -28,10 +28,9 @@ async def index(request: Request):
     return templates.TemplateResponse(request=request, name='index.html')
 #
 #
-@app.get('/users/{user_id}')
-def get_user(request: Request, user_id: int):
-    user = get_user_by_id(Session, user_id)
-    return templates.TemplateResponse(request, 'index.html', context={'user':user})
+@app.get('/register')
+def register(request: Request):
+    return templates.TemplateResponse(request, 'register.html')
 #
 #
 # class Item(BaseModel):
